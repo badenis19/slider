@@ -4,3 +4,27 @@ let images = [
     "https://images.unsplash.com/photo-1581337204873-ef36aa186caa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1038&q=80"
 ]
 
+let previous = document.querySelector("#previous");
+let next = document.querySelector("#next");
+let slider = document.querySelector("#slider");
+
+
+let number = 0;
+
+next.addEventListener(("click"), () => {
+    console.log(">>", images.length)
+    console.log("==", number)
+
+    if (number > images.length - 2){
+        console.log("++", number)
+        number = 0 ;
+        slider.src = images[number];
+    } else {
+        number++;
+        slider.src = images[number];
+    }
+})
+
+previous.addEventListener(("click"), () => {
+    console.log("<<")
+})
