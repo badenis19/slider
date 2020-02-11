@@ -8,15 +8,10 @@ let previous = document.querySelector("#previous");
 let next = document.querySelector("#next");
 let slider = document.querySelector("#slider");
 
-
 let number = 0;
 
 next.addEventListener(("click"), () => {
-    console.log(">>", images.length)
-    console.log("==", number)
-
     if (number > images.length - 2){
-        console.log("++", number)
         number = 0 ;
         slider.src = images[number];
     } else {
@@ -26,5 +21,11 @@ next.addEventListener(("click"), () => {
 })
 
 previous.addEventListener(("click"), () => {
-    console.log("<<")
+    if (number < 1){
+        number = 0 ;
+        slider.src = images[number];
+    } else {
+        number--;
+        slider.src = images[number];
+    }
 })
