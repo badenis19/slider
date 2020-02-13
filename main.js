@@ -10,6 +10,8 @@ let slider = document.querySelector("#slider");
 
 let number = 0;
 
+
+// to go to next image
 next.addEventListener(("click"), () => {
     if (number > images.length - 2){
         number = 0 ;
@@ -20,6 +22,7 @@ next.addEventListener(("click"), () => {
     }
 })
 
+// to go to previous image
 previous.addEventListener(("click"), () => {
     if (number < 1){
         number = 0 ;
@@ -29,3 +32,18 @@ previous.addEventListener(("click"), () => {
         slider.src = images[number];
     }
 })
+
+// function that will be called every 2 seconds for the carousel / slideshow
+const nextImageFunction = () => {
+    if (number > images.length - 2){
+        number = 0 ;
+        slider.src = images[number];
+    } else {
+        number++;
+        slider.src = images[number];
+    }
+}
+
+// for the image to change every 2s
+// setInterval repeats the execution of the function continuously.
+setInterval(nextImageFunction, 2000);
